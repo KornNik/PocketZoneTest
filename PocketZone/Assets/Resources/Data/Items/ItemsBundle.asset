@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ItemsBundle
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d1037872e85ed0a43b4b79bdac5bf9eb, type: 2}
+  - {fileID: 11400000, guid: 582679b14b7000246bf91ede8e8d6a25, type: 2}

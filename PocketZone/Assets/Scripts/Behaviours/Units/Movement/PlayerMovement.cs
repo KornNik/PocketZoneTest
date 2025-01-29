@@ -5,10 +5,10 @@ namespace Behaviours
 {
     sealed class PlayerMovement : Movement
     {
-        private PlayerData _data;
-        public PlayerMovement(Rigidbody2D rigidbody, Transform transform, PlayerData playerData) : base(rigidbody, transform)
+        private UnitData _data;
+        public PlayerMovement(Rigidbody2D rigidbody, Transform transform, UnitData unitData) : base(rigidbody, transform)
         {
-            _data = playerData;
+            _data = unitData;
         }
 
         public override void Move(Vector2 inputVector)

@@ -8,7 +8,8 @@ namespace Behaviours
         public Action<bool> Moving;
         public Action Died;
         public Action Revived;
+        public Action HealthIsEnd;
         public Action Attacking;
-        public Action<float> HealthRate;
+        public Action<HealthStruct> HealthChanged;
     }
 }

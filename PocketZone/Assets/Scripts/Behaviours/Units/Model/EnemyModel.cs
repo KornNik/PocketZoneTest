@@ -15,8 +15,8 @@ namespace Behaviours
         protected override void Awake()
         {
             base.Awake();
-            _combat = new RayCastCombat();
-            _movement = new AstarMovement(Rigidbody, Transform, _aiPath, _enemyData);
+            _combat = new Combat();
+            _movement = new AstarMovement(Rigidbody, Transform, _aiPath, _enemyData, Data);
             _drop = new EnemyDrop(_type);
         }
     }

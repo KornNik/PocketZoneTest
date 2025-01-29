@@ -7,19 +7,21 @@ namespace Behaviours
     sealed class AstarMovement : Movement
     {
         private AIPath _pathfinding;
-        private EnemyData _data;
+        private UnitData _data;
+        private EnemyData _enemyData;
 
         public AstarMovement(Rigidbody2D rigidbody, Transform transform,
-            AIPath aiPath, EnemyData enemyData) : base(rigidbody, transform)
+            AIPath aiPath, EnemyData enemyData, UnitData unitData) : base(rigidbody, transform)
         {
             _pathfinding = aiPath;
-            _data = enemyData;
+            _data = unitData;
+            _enemyData = enemyData;
             Configuration();
         }
         private void Configuration()
         {
-            _pathfinding.endReachedDistance = _data.StopingDistance;
-            _pathfinding.slowdownDistance = _data.SlowDownDistance;
+            _pathfinding.endReachedDistance = _enemyData.StopingDistance;
+            _pathfinding.slowdownDistance = _enemyData.SlowDownDistance;
         }
 
         public override void Move(Vector2 inputVector)

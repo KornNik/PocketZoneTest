@@ -25,7 +25,6 @@ namespace Data
             item.transform.position = frontCharacterPosition;
             item.transform.rotation = charachterTransform.rotation;
             item.SetItemDataInfo(this);
-            item.Move(Vector3.forward);
         }
         public virtual Item GetItem()
         {

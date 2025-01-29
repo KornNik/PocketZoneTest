@@ -12,8 +12,8 @@ namespace Behaviours
         protected override void Awake()
         {
             base.Awake();
-            _combat = new RayCastCombat();
-            _movement = new PlayerMovement(Rigidbody, Transform, _playerData);
+            _combat = new Combat();
+            _movement = new PlayerMovement(Rigidbody, Transform, Data);
             _inventory = new Inventory();
         }
     }

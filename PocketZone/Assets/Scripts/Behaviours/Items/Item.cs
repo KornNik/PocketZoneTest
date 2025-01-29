@@ -1,11 +1,11 @@
 ﻿using Data;
+using Helpers.Managers;
 using UnityEngine;
 
 namespace Behaviours.Items
 {
-    abstract class Item : MonoBehaviour, IItem, IMovable, IInteractable
+    abstract class Item : MonoBehaviour, IItem, IInteractable
     {
-        [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Collider2D _interactionCollider;
         [SerializeField] private ItemInfo _itemDataInfo;
 
@@ -26,6 +26,13 @@ namespace Behaviours.Items
         {
             
         }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer(LayersManager.PLAYER) && _isAllowInteract)
+            {
+                GrabItem();
+            }
+        }
 
         public void SetItemDataInfo(ItemInfo itemDataInfo)
         {
@@ -35,26 +42,15 @@ namespace Behaviours.Items
         public void DropItem()
         {
             _isAllowInteract = true;
-            _rigidbody.isKinematic = false;
             _interactionCollider.enabled = true;
-            Move(gameObject.transform.forward);
         }
         public void GrabItem()
         {
             _isAllowInteract = false;
-            _rigidbody.isKinematic = true;
             _interactionCollider.enabled = false;
             Destroy(gameObject);
         }
         public void Interact(IInteracter interacter)
-        {
-            //GrabItem
-        }
-        public void Move(Vector2 movement)
-        {
-            _rigidbody.AddForce(transform.forward);
-        }
-        public void StopMovement()
         {
 
         }
